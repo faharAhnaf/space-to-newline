@@ -1,8 +1,7 @@
 "use client";
 
-import { FloatingNav } from "@/components/ui/floating-navbar";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import { useState, useEffect, useRef, ChangeEvent } from "react";
+import { useState } from "react";
 import { ButtonsCard } from "@/components/ui/tailwindcss-buttons";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { ModeToggle } from "@/components/ui/mode-toggle";
@@ -87,7 +86,7 @@ export default function Home() {
       </section>
       <footer className="dark:bg-black">
         <div className="flex w-full flex-row items-center justify-center">
-          <div className="m-10 flex mr-14">
+          <div className="m-10 mr-14 flex">
             <AnimatedTooltip
               items={[
                 {
