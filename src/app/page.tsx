@@ -38,7 +38,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-black">
+    <div className="flex min-h-screen flex-col dark:bg-black">
       <nav className="fixed z-10 m-4 mx-auto flex w-screen items-center justify-between gap-96">
         <div className="ml-5 text-center">tes</div>
         <div className="mr-5">
@@ -85,7 +85,12 @@ export default function Home() {
         </div>
       </section>
       <footer className="dark:bg-black">
-        <div className="flex w-full flex-row items-center justify-center">
+        <div className="flex w-full flex-row items-center justify-center md:justify-between">
+          <div>
+            <p className="m-10 hidden bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-3xl font-bold text-transparent md:flex">
+              ICIKIWIR PROJECT
+            </p>
+          </div>
           <div className="m-10 mr-14 flex">
             <AnimatedTooltip
               items={[
