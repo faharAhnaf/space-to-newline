@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col dark:bg-black">
-      <nav className="fixed z-10 m-4 mx-auto flex w-screen items-center justify-between gap-96">
+      <nav className="fixed z-10 m-4 mx-auto flex w-screen items-center justify-between">
         <div className="ml-5 text-center">tes</div>
         <div className="mr-5">
           <ModeToggle />
@@ -55,10 +55,9 @@ export default function Home() {
       <section className="flex-grow dark:bg-black">
         <div className="mx-4 grid space-y-5">
           <textarea
-            className="border-xl mx-auto mt-10 grid h-52 w-[44vh] resize-none items-center rounded-lg border-4 p-3 leading-none md:h-56 dark:bg-white dark:text-black"
+            className="border-xl mx-auto mt-10 grid h-52 w-full max-w-[24rem] resize-none items-center rounded-lg border-4 p-3 leading-none md:h-56 md:max-w-[26rem] dark:bg-white dark:text-black"
             name="textarea"
             id="textarea"
-            // ref={textAreaRef}
             rows={1}
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -69,7 +68,7 @@ export default function Home() {
               <button className="relative p-[3px]">
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
                 <div className="group relative rounded-[6px] bg-white px-8 py-2 transition duration-200 hover:bg-transparent hover:text-white dark:bg-black dark:text-white dark:hover:bg-transparent">
-                  Space To Newline
+                  <p className="text-[13px] md:text-[16px]">Space To Newline</p>
                 </div>
               </button>
             </ButtonsCard>
@@ -77,7 +76,7 @@ export default function Home() {
               <button className="relative p-[3px]">
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
                 <div className="group relative rounded-[6px] bg-white px-8 py-2 transition duration-200 hover:bg-transparent hover:text-white dark:bg-black dark:text-white dark:hover:bg-transparent">
-                  Newline To Space
+                  <p className="text-[13px] md:text-[16px]">Newline To Space</p>
                 </div>
               </button>
             </ButtonsCard>
