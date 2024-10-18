@@ -55,7 +55,7 @@ export default function Home() {
       <section className="flex-grow dark:bg-black">
         <div className="mx-4 grid space-y-5">
           <textarea
-            className="border-xl mx-auto mt-10 grid h-52 w-[42vh] resize-none items-center rounded-lg border-4 p-3 leading-none md:h-56 dark:bg-white dark:text-black"
+            className="border-xl mx-auto mt-10 grid h-52 w-[44vh] resize-none items-center rounded-lg border-4 p-3 leading-none md:h-56 dark:bg-white dark:text-black"
             name="textarea"
             id="textarea"
             // ref={textAreaRef}
