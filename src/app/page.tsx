@@ -38,10 +38,10 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <nav className="m-4 flex justify-between">
-        <div>tes</div>
-        <div>
+    <div className="flex min-h-screen flex-col bg-black">
+      <nav className="fixed z-10 m-4 mx-auto flex w-screen items-center justify-between gap-96">
+        <div className="ml-5 text-center">tes</div>
+        <div className="mr-5">
           <ModeToggle />
         </div>
       </nav>
@@ -55,7 +55,7 @@ export default function Home() {
       <section className="flex-grow dark:bg-black">
         <div className="mx-4 grid space-y-5">
           <textarea
-            className="border-xl mx-auto mt-10 grid h-40 w-[40vh] resize-none items-center rounded-lg border-4 p-3 leading-none md:h-56 dark:bg-white dark:text-black"
+            className="border-xl mx-auto mt-10 grid h-52 w-[42vh] resize-none items-center rounded-lg border-4 p-3 leading-none md:h-56 dark:bg-white dark:text-black"
             name="textarea"
             id="textarea"
             // ref={textAreaRef}
