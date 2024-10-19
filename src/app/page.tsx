@@ -5,9 +5,13 @@ import { useState } from "react";
 import { ButtonsCard } from "@/components/ui/tailwindcss-buttons";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [text, setText] = useState("");
+  const [showCopied, setShowCopied] = useState(false);
+
   // const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   // const adjustTextareaHeight = () => {
@@ -37,6 +41,12 @@ export default function Home() {
     setText(updatedText);
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(text);
+    setShowCopied(true);
+    setTimeout(() => setShowCopied(false), 2000); // Hilangkan notifikasi setelah 2 detik
+  };
+
   return (
     <div className="flex min-h-screen flex-col dark:bg-black">
       <nav className="fixed z-10 m-4 mx-auto flex w-screen items-center justify-between">
@@ -54,14 +64,27 @@ export default function Home() {
       </HeroHighlight>
       <section className="flex-grow dark:bg-black">
         <div className="mx-4 grid space-y-5">
-          <textarea
-            className="border-xl mx-auto mt-10 grid h-52 w-full max-w-[24rem] resize-none items-center rounded-lg border-4 p-3 leading-none md:h-56 md:max-w-[26rem] dark:bg-white dark:text-black"
-            name="textarea"
-            id="textarea"
-            rows={1}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
+          <div className="relative mx-auto mt-10 w-full max-w-[24rem] md:max-w-[26rem]">
+            <textarea
+              className="border-xl h-52 w-full resize-none rounded-lg border-4 p-3 leading-none md:h-56 dark:placeholder:text-white"
+              name="textarea"
+              id="textarea"
+              rows={1}
+              placeholder="Insert Here"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <FontAwesomeIcon
+              icon={faCopy}
+              className="absolute right-3 top-3 cursor-pointer"
+              onClick={copyToClipboard}
+            />
+            {showCopied && (
+              <div className="absolute right-3 top-10 rounded bg-purple-300 px-2 py-1 text-sm text-black dark:bg-purple-500 dark:text-white">
+                Copied!
+              </div>
+            )}
+          </div>
 
           <div className="mx-auto grid grid-cols-2 space-x-3 md:space-x-3">
             <ButtonsCard onClick={handleSpaceToNewline}>
@@ -86,7 +109,7 @@ export default function Home() {
       <footer className="dark:bg-black">
         <div className="flex w-full flex-row items-center justify-center md:justify-between">
           <div>
-            <p className="m-10 hidden bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-3xl font-bold text-transparent md:flex">
+            <p className="m-10 hidden bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-3xl font-bold text-transparent md:flex dark:from-indigo-500 dark:to-purple-500">
               ICIKIWIR PROJECT
             </p>
           </div>
