@@ -1,16 +1,24 @@
 "use client";
 
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonsCard } from "@/components/ui/tailwindcss-buttons";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
+import React from "react";
+import { useTheme } from "next-themes";
 
 export default function Home() {
   const [text, setText] = useState("");
   const [showCopied, setShowCopied] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setTheme("system");
+  }, [setTheme]);
 
   // const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -49,16 +57,34 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col dark:bg-black">
-      <nav className="fixed z-10 m-4 mx-auto flex w-screen items-center justify-between">
-        <div className="ml-5 text-center">tes</div>
-        <div className="mr-5">
+      <nav className="fixed z-10 mx-auto flex w-screen items-center justify-between p-10">
+        {theme === "light" ? (
+          <Image
+            alt="Logo Convert Hub"
+            src="/logo/convert-hub-light.png"
+            width={100}
+            height={100}
+            className="h-auto w-auto"
+          />
+        ) : (
+          <Image
+            alt="Logo Convert Hub"
+            src="/logo/convert-hub-dark.png"
+            width={100}
+            height={100}
+            className="h-auto w-auto"
+          />
+        )}
+
+        <div>
           <ModeToggle />
         </div>
       </nav>
       <HeroHighlight>
         <div>
-          <p className="mx-1 text-center text-5xl font-bold leading-snug md:text-6xl">
-            Convert Your Way,&nbsp;<Highlight>Every Day</Highlight>
+          <p className="mx-1 text-center text-3xl font-bold leading-tight md:mx-10 md:text-6xl md:leading-normal">
+            Text Transformation Made Easy:&nbsp;
+            <Highlight>Switch Between Spaces and Newlines!</Highlight>
           </p>
         </div>
       </HeroHighlight>
