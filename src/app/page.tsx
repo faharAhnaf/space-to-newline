@@ -53,8 +53,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col dark:bg-black">
-      <nav className="fixed z-10 mx-auto flex w-screen items-center justify-between p-10">
+    <div className="relative flex flex-col dark:bg-black">
+      <nav className="absolute z-10 mx-auto flex w-screen items-center justify-between px-10 py-5 md:fixed">
         <svg
           width="150"
           height="50"
@@ -134,12 +134,10 @@ export default function Home() {
         </div>
       </nav>
       <HeroHighlight>
-        <div>
-          <p className="mx-1 text-center text-3xl font-bold leading-tight md:mx-10 md:text-6xl md:leading-normal">
-            Text Transformation Made Easy:&nbsp;
-            <Highlight>Switch Between Spaces and Newlines!</Highlight>
-          </p>
-        </div>
+        <p className="mx-1 text-center text-3xl font-bold leading-tight md:mx-10 md:text-6xl md:leading-normal">
+          Text Transformation Made Easy:&nbsp;
+          <Highlight>Switch Between Spaces and Newlines!</Highlight>
+        </p>
       </HeroHighlight>
       <section className="flex-grow dark:bg-black">
         <div className="mx-4 grid space-y-5">
